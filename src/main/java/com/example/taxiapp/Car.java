@@ -32,6 +32,6 @@ public class Car {
 
     public void back() throws IOException {
         Application app = new Application();
-        app.changeScene("home.fxml");
+        app.changeScene("home.fxml", 600, 400);
     }
 }

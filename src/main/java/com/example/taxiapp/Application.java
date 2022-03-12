@@ -20,9 +20,9 @@ public class Application extends javafx.application.Application {
         stage.show();
     }
 
-    public void changeScene(String fxml) throws IOException {
+    public void changeScene(String fxml, int width, int height) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource(fxml));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), width, height);
         stg.setScene(scene);
     }
 

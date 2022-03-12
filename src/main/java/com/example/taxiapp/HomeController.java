@@ -16,14 +16,19 @@ public class HomeController{
     public void editData() throws IOException {
 
         Application app = new Application();
-        app.changeScene("main.fxml");
+        app.changeScene("main.fxml", 600, 400);
 
     }
 
     public void add() throws IOException {
         Application app = new Application();
-        app.changeScene("car.fxml");
+        app.changeScene("car.fxml", 600, 400);
 
+    }
+
+    public void viewTable() throws IOException {
+        Application app = new Application();
+        app.changeScene("table.fxml", 800, 600);
     }
 
 }

@@ -1,6 +1,6 @@
 package com.example.taxiapp;
 
-import com.example.taxiapp.entity.CarEntityDay;
+import com.example.taxiapp.entity.CarEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -93,16 +93,16 @@ public class DB {
         }
     }
 
-    public static ObservableList<CarEntityDay> getCarDay(String name) throws SQLException{
+    public static ObservableList<CarEntity> getCarDay(String name) throws SQLException{
         try(Connection c = getConnection()){
-            String sql = "SELECT * FROM " + name;
+            String sql = "SELECT * FROM \"" + name +"\"";
             Statement s = c.createStatement();
             ResultSet resultSet = s.executeQuery(sql);
 
-            CarEntityDay car;
-            ObservableList<CarEntityDay> carList = FXCollections.observableArrayList();
+            CarEntity car;
+            ObservableList<CarEntity> carList = FXCollections.observableArrayList();
             while (resultSet.next()){
-                car = new CarEntityDay(
+                car = new CarEntity(
                         resultSet.getString("date"),
                         resultSet.getString("income_d"),
                         resultSet.getString("fuel_d"),
@@ -113,6 +113,34 @@ public class DB {
                         resultSet.getString("spare"),
                         resultSet.getString("profit"),
                         resultSet.getString("dispatcher_d")
+                );
+                carList.add(car);
+            }
+            return carList;
+        }
+    }
+
+    public static ObservableList<CarEntity> getCarNight(String name) throws SQLException{
+        try(Connection c = getConnection()){
+            String sql = "SELECT * FROM \"" + name +"\"";
+            Statement s = c.createStatement();
+            ResultSet resultSet = s.executeQuery(sql);
+
+            CarEntity car;
+            ObservableList<CarEntity> carList = FXCollections.observableArrayList();
+            while (resultSet.next()){
+                car = new CarEntity(
+                        resultSet.getString("date"),
+                        resultSet.getString("income_n"),
+                        resultSet.getString("fuel_n"),
+                        resultSet.getString("wash_n"),
+                        resultSet.getString("other_n"),
+                        resultSet.getString("salary_n"),
+                        resultSet.getString("repair"),
+                        resultSet.getString("spare"),
+                        resultSet.getString("profit"),
+                        resultSet.getString("dispatcher_n"),
+                        "yes"
                 );
                 carList.add(car);
             }
