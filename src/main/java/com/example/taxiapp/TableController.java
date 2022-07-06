@@ -2,8 +2,8 @@ package com.example.taxiapp;
 
 
 import com.example.taxiapp.entity.CarEntity;
+import com.example.taxiapp.util.DB;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -82,9 +82,10 @@ public class TableController implements Initializable {
             day.setOnAction(event -> {
                 if(day.getValue() == "День"){
                     showCarDay();
-                } else{
+                } else {
                     showCarNight();
                 }
+
             });
 
         } catch (Exception e) {
@@ -120,6 +121,7 @@ public class TableController implements Initializable {
         }
 
     }
+
 
     public void showCarNight(){
         try {

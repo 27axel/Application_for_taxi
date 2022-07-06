@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #303030;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taxiapp.HomeController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #303030;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taxiapp.HomeController">
    <children>
       <Label layoutX="235.0" layoutY="40.0" text="Главная" textFill="WHITE">
          <font>
@@ -16,7 +15,7 @@
          <font>
             <Font name="Arial Rounded MT Bold" size="12.0" />
          </font></Button>
-      <Button fx:id="viewButton" layoutX="236.0" layoutY="239.0" mnemonicParsing="false" onAction="#viewTable" text="Просмотреть ремонт">
+      <Button fx:id="viewButton" layoutX="236.0" layoutY="239.0" mnemonicParsing="false" onAction="#viewTable" text="Просмотреть записи">
          <font>
             <Font name="Arial Rounded MT Bold" size="12.0" />
          </font></Button>
