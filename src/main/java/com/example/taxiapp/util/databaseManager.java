@@ -8,10 +8,45 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DB {
+public class databaseManager {
 
     public static Connection getConnection() throws SQLException{
-        return DriverManager.getConnection("jdbc:sqlite:taxi.sqlite");
+        return DriverManager.getConnection("jdbc:sqlite:taxi.db");
+    }
+
+    public static void addCar(String name) throws SQLException {
+        try (Connection c = getConnection()) {
+            String sql = "INSERT INTO Car(name) values (?)";
+            PreparedStatement ps = c.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+
+            ps.setString(1, name);
+            ps.executeUpdate();
+        }
+    }
+
+    public static ObservableList<String> getCar() throws SQLException{
+        try(Connection c = getConnection()){
+            String sql = "SELECT name FROM Car";
+            Statement s = c.createStatement();
+            ResultSet resultSet = s.executeQuery(sql);
+
+            ObservableList<String> carList = FXCollections.observableArrayList();
+            while (resultSet.next()){
+                carList.add(
+                        resultSet.getString("name")
+                );
+            }
+            return carList;
+        }
+    }
+
+    public static void deleteCar(String name) throws SQLException {
+        try (Connection c = getConnection()){
+            String sql = "DELETE FROM Car WHERE name=?";
+            PreparedStatement ps = c.prepareStatement(sql);
+            ps.setString(1, name);
+            ps.executeUpdate();
+        }
     }
 
     public static void insert(String name, String date, String income_d, String income_n, String fuel_d, String fuel_n, String wash_d, String wash_n, String other_d, String other_n, String salary_d, String salary_n, String repair, String repair_date, String spare, String comment, String profit, String disp_d, String disp_n) throws SQLException{
@@ -93,7 +128,9 @@ public class DB {
         }
     }
 
-    public static ObservableList<CarEntity> getCarDay(String name) throws SQLException{
+
+
+    public static ObservableList<CarEntity> getInfo(String name) throws SQLException{
         try(Connection c = getConnection()){
             String sql = "SELECT * FROM \"" + name +"\"";
             Statement s = c.createStatement();
@@ -102,47 +139,7 @@ public class DB {
             CarEntity car;
             ObservableList<CarEntity> carList = FXCollections.observableArrayList();
             while (resultSet.next()){
-                car = new CarEntity(
-                        resultSet.getString("date"),
-                        resultSet.getString("income_d"),
-                        resultSet.getString("fuel_d"),
-                        resultSet.getString("wash_d"),
-                        resultSet.getString("other_d"),
-                        resultSet.getString("salary_d"),
-                        resultSet.getString("repair"),
-                        resultSet.getString("spare"),
-                        resultSet.getString("profit"),
-                        resultSet.getString("dispatcher_d")
-                );
-                carList.add(car);
-            }
-            return carList;
-        }
-    }
 
-    public static ObservableList<CarEntity> getCarNight(String name) throws SQLException{
-        try(Connection c = getConnection()){
-            String sql = "SELECT * FROM \"" + name +"\"";
-            Statement s = c.createStatement();
-            ResultSet resultSet = s.executeQuery(sql);
-
-            CarEntity car;
-            ObservableList<CarEntity> carList = FXCollections.observableArrayList();
-            while (resultSet.next()){
-                car = new CarEntity(
-                        resultSet.getString("date"),
-                        resultSet.getString("income_n"),
-                        resultSet.getString("fuel_n"),
-                        resultSet.getString("wash_n"),
-                        resultSet.getString("other_n"),
-                        resultSet.getString("salary_n"),
-                        resultSet.getString("repair"),
-                        resultSet.getString("spare"),
-                        resultSet.getString("profit"),
-                        resultSet.getString("dispatcher_n"),
-                        "yes"
-                );
-                carList.add(car);
             }
             return carList;
         }

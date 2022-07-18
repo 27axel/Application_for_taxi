@@ -13,9 +13,10 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
         stg = stage;
-        stage.setResizable(false);
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("home.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        stage.setMinWidth(1050);
+        stage.setMinHeight(600);
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("mainPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1050, 600);
         stage.setScene(scene);
         stage.show();
     }
@@ -27,7 +28,7 @@ public class Application extends javafx.application.Application {
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
 
     }
 
