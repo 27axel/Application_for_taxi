@@ -1,7 +1,8 @@
-package com.example.taxiapp;
+package com.example.taxiapp.controllers;
 
 
-import com.example.taxiapp.util.DB;
+import com.example.taxiapp.Application;
+import com.example.taxiapp.util.databaseManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -29,8 +30,8 @@ public class Controller implements Initializable {
 
 
     public void cb() throws SQLException {
-        for(int i = 0; i < DB.tables().size(); i++ ){
-            choiceBox.getItems().add(DB.tables().get(i));
+        for(int i = 0; i < databaseManager.tables().size(); i++ ){
+            choiceBox.getItems().add(databaseManager.tables().get(i));
         }
     }
 
@@ -118,7 +119,7 @@ public class Controller implements Initializable {
 
 
         try {
-            DB.insert(choiceBox.getValue(), String.valueOf(dateWork.getValue()), income_d.getText(), income_n.getText(), costFuel_d.getText(), costFuel_n.getText(),wash_d.getText(), wash_n.getText(), other_d.getText(), other_n.getText(), salary_d.getText(), salary_n.getText(), costRepair.getText(), String.valueOf(dateRepair.getValue()), costSpares.getText(), commRepair.getText(), total.getText(), dispatcher_d.getText(), dispatcher_n.getText());
+            databaseManager.insert(choiceBox.getValue(), String.valueOf(dateWork.getValue()), income_d.getText(), income_n.getText(), costFuel_d.getText(), costFuel_n.getText(),wash_d.getText(), wash_n.getText(), other_d.getText(), other_n.getText(), salary_d.getText(), salary_n.getText(), costRepair.getText(), String.valueOf(dateRepair.getValue()), costSpares.getText(), commRepair.getText(), total.getText(), dispatcher_d.getText(), dispatcher_n.getText());
         } catch (SQLException e) {
             e.printStackTrace();
         }

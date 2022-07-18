@@ -6,24 +6,24 @@ import javafx.scene.control.Alert.AlertType;
 
 public abstract class AlertManager extends Application{
 
-   public static void showInfo(String car) {
+   public static void showInfo(String text) {
        Alert alert = new Alert(AlertType.INFORMATION);
-       alert.setTitle(car);
+       alert.setTitle("Информация");
 
        // Header Text: null
        alert.setHeaderText(null);
-       alert.setContentText("Машина " + car + ", успешно добавленна!");
+       alert.setContentText(text);
 
        alert.showAndWait();
    }
 
-    public static void showWarning(String car) {
+    public static void showWarning(String text) {
         Alert alert = new Alert(AlertType.WARNING);
-        alert.setTitle(car);
+        alert.setTitle("Ошибка");
 
         // Header Text: null
         alert.setHeaderText(null);
-        alert.setContentText("Машина " + car + ", уже существует!");
+        alert.setContentText(text);
 
         alert.showAndWait();
     }

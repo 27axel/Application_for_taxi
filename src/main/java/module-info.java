@@ -11,4 +11,6 @@ module com.example.taxiapp {
     opens com.example.taxiapp.entity to javafx.fxml;
     exports com.example.taxiapp.util;
     opens com.example.taxiapp.util to javafx.fxml;
+    exports com.example.taxiapp.controllers;
+    opens com.example.taxiapp.controllers to javafx.fxml;
 }
