@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taxiapp.controllers.DriverController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taxiapp.controllers.DispatcherController">
    <children>
       <VBox layoutY="64.0" prefHeight="535.0" prefWidth="180.0" style="-fx-background-color: #6495ED;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="65.0">
          <children>
-            <Button fx:id="btnDriver" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#addDriver" prefHeight="50.0" prefWidth="240.0" stylesheets="@../../../css/style.css" text="Водители" textFill="WHITE">
+            <Button fx:id="btnDriver" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#btnDriver" prefHeight="50.0" prefWidth="240.0" stylesheets="@../../../css/style.css" text="Водители" textFill="WHITE">
                <padding>
                   <Insets left="50.0" />
                </padding>
@@ -22,7 +22,7 @@
                   <Font name="Calibri" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="btnDispatch" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#addDispatch" prefHeight="50.0" prefWidth="240.0" stylesheets="@../../../css/style.css" text="Диспетчера" textFill="WHITE">
+            <Button fx:id="btnDispatch" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnDispatch" prefHeight="50.0" prefWidth="240.0" stylesheets="@../../../css/style.css" text="Диспетчера" textFill="WHITE">
                <padding>
                   <Insets left="50.0" />
                </padding>
@@ -30,7 +30,7 @@
                   <Font name="Calibri" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="btnCars" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="60.0" mnemonicParsing="false" onAction="#addCars" prefHeight="50.0" prefWidth="240.0" stylesheets="@../../../css/style.css" text="Машины" textFill="WHITE">
+            <Button fx:id="btnCars" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="60.0" mnemonicParsing="false" onAction="#btnCars" prefHeight="50.0" prefWidth="240.0" stylesheets="@../../../css/style.css" text="Машины" textFill="WHITE">
                <padding>
                   <Insets left="50.0" />
                </padding>
@@ -38,7 +38,7 @@
                   <Font name="Calibri" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="btnRepair" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="110.0" mnemonicParsing="false" onAction="#addRepair" prefHeight="50.0" prefWidth="240.0" stylesheets="@../../../css/style.css" text="Ремонт" textFill="WHITE">
+            <Button fx:id="btnRepair" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="110.0" mnemonicParsing="false" onAction="#btnRepair" prefHeight="50.0" prefWidth="240.0" stylesheets="@../../../css/style.css" text="Ремонт" textFill="WHITE">
                <padding>
                   <Insets left="50.0" />
                </padding>
@@ -57,8 +57,8 @@
             </Label>
          </children>
       </Pane>
-      <ListView fx:id="driverList" layoutX="800.0" layoutY="65.0" prefHeight="450.0" prefWidth="250.0" style="-fx-border-color: white;" AnchorPane.bottomAnchor="85.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0" />
-      <Button fx:id="delete" layoutX="963.0" layoutY="550.0" mnemonicParsing="false" onAction="#deleteDriver" stylesheets="@../../../css/style.css" text="Удалить" textFill="WHITE" AnchorPane.bottomAnchor="23.0" AnchorPane.rightAnchor="33.0" />
+      <ListView fx:id="dispatcherList" layoutX="800.0" layoutY="65.0" prefHeight="450.0" prefWidth="250.0" style="-fx-border-color: white;" AnchorPane.bottomAnchor="85.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0" />
+      <Button layoutX="963.0" layoutY="550.0" mnemonicParsing="false" onAction="#deleteBtn" stylesheets="@../../../css/style.css" text="Удалить" textFill="WHITE" AnchorPane.bottomAnchor="23.0" AnchorPane.rightAnchor="33.0" />
       <AnchorPane layoutX="180.0" layoutY="64.0" prefHeight="535.0" prefWidth="620.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="250.0">
          <children>
             <TextField fx:id="nameField" layoutX="83.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="27.0" prefWidth="375.0" style="-fx-border-color: #6495ED;" stylesheets="@../../../css/style.css" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="162.0" />

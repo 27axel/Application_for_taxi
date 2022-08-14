@@ -41,7 +41,7 @@ public class CarController implements Initializable {
                 list.add(nameField.getText());
                 AlertManager.showInfo("Машина " + nameField.getText() + " успешно добавлена");
             } else {
-                AlertManager.showWarning("Введите название");
+                AlertManager.showWarning("Введите название машины");
             }
         } catch (SQLException e) {
             AlertManager.showWarning("Неккоректный ввод или машина уже добавлена");
@@ -61,12 +61,12 @@ public class CarController implements Initializable {
 
     public void addDriver() throws IOException {
         Application app = new Application();
-        app.changeScene("mainPage.fxml", 1050, 600);
+        app.changeScene("driverPage.fxml", 1050, 600);
     }
 
     public void addDispatch() throws IOException {
         Application app = new Application();
-        app.changeScene("mainPage.fxml", 1050, 600);
+        app.changeScene("dispatcherPage.fxml", 1050, 600);
     }
 
     public void addCars() throws IOException {

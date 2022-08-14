@@ -84,3 +84,7 @@
     -fx-background-color: white;
     -fx-border-color: #6495ED;
 }
+
+.label:hover {
+    -fx-cursor: hand;
+}

@@ -15,7 +15,7 @@ public class Application extends javafx.application.Application {
         stg = stage;
         stage.setMinWidth(1050);
         stage.setMinHeight(600);
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("mainPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("driverPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1050, 600);
         stage.setScene(scene);
         stage.show();

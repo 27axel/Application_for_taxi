@@ -45,12 +45,12 @@ public class MainController implements Initializable {
 
     public void addDriver() throws IOException{
         Application app = new Application();
-        app.changeScene("car.fxml", 1050, 600);
+        app.changeScene("driverPage.fxml", 1050, 600);
     }
 
     public void addDispatch() throws IOException{
         Application app = new Application();
-        app.changeScene("car.fxml", 1050, 600);
+        app.changeScene("dispatcherPage.fxml", 1050, 600);
     }
 
     public void addCars() throws IOException{
